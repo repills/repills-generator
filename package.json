@@ -9,6 +9,7 @@
   "devDependencies": {
     "react-scripts": "1.1.1"
   },
+  "homepage": "https://repills.github.io/repills-generator/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
