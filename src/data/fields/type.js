@@ -17,7 +17,7 @@ export default collectedData => {
   return {
     title: 'Type',
     component: 'Select',
-    help: 'todo',
+    help: 'Choose the resource type',
     name: 'type',
     options: typesOptions,
     handler: ({ value }) => ({ value, dirty: true }),
