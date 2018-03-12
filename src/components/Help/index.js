@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-  Button,
-  GitHubIcon
+  Button
 } from 'repills-react-components';
 import styled from 'styled-components';
 import {

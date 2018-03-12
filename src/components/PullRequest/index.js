@@ -41,7 +41,7 @@ class PullRequest extends React.Component {
       snippet
     } = this.props;
     const publishedAt = resourceData.publishedAt.value;
-    const year = publishedAt ? parseInt(publishedAt) : 'NO_DATE';
+    const year = publishedAt ? parseInt(publishedAt,10) : 'NO_DATE';
     return `${baseUrlGitHubRepo}${resourceData.sections.value}/${year}/new/develop/?filename=${fileName}&value=${encodeURI(snippet)}`;
   };
 
