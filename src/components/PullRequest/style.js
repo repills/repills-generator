@@ -9,20 +9,14 @@ const { palettes } = theme;
 const { neutral } = palettes;
 
 export const base = css`
-  max-width: ${extRem(800)};
   margin: 0 auto;
+  padding-top: ${extRem(36)};
 `;
 
 export const title = css`
   ${typography.header3}
   color: ${neutral.highest};
   margin: ${extRem(28)} 0 0;
-`;
-
-export const p = css`
-  ${typography.body}
-  color: ${neutral.high};
-  margin: ${extRem(20)} 0 0 0;
 `;
 
 export const codeBlock = css`
