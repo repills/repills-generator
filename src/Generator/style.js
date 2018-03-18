@@ -10,7 +10,6 @@ export const page = css`
 `;
 
 export const navigation = css`
-  padding: ${extRem(0, 16)}
 `;
 
 export const step = css`
@@ -69,7 +68,7 @@ export const label = css`
 `;
 
 export const helpGuide = css`
-  padding-top: ${extRem(40)};
+  padding: ${extRem(40,16,0)};
 `;
 
 export const helpStyle = css`
@@ -86,7 +85,8 @@ export const helpStyle = css`
 
 export const footer = css`
   ${typography.small}
-  margin-top: ${extRem(80)};
+  margin-top: ${extRem(60)};
+  padding: ${extRem(20,0,28)};
   color: ${neutral.mediumHigh};
   align-items: center;
   display: flex;

@@ -36,8 +36,8 @@ import {
 } from './style';
 
 const HelpGuideStyle = styled.div`${helpGuide}`;
-const HelpStyle = styled.p`${helpStyle}`;
-const NavigationStyle = styled.p`${navigation}`;
+const HelpStyle = styled.div`${helpStyle}`;
+const NavigationStyle = styled.div`${navigation}`;
 const LabelStyle = styled.h4`${label}`;
 const PageStyle = styled.div`${page}`;
 const StepBodyStyle = styled.div`${stepBody}`;
@@ -265,7 +265,7 @@ reference: ${this.getFileName(false)}
               <Button
                 label="Previous"
                 onClick={this.handleGoToPrevStep}
-                skin="ghost"
+                skin="outline"
                 type="button"
               />
             }
@@ -299,7 +299,8 @@ reference: ${this.getFileName(false)}
             items={[
               {
                 label: 'Info',
-                onClick: () => this.setState({ showHelp: true })
+                onClick: () => this.setState({ showHelp: true }),
+                hidden: initialHelpVisible
               },
               {
                 label: 'repills.com',
@@ -323,6 +324,7 @@ reference: ${this.getFileName(false)}
         <Modal
           handleClose={this.closeHelp}
           open={showHelp}
+          size="L"
         >
           <Help
             handleOnConfirm={this.closeHelp}
