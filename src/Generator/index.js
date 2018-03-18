@@ -31,12 +31,14 @@ import {
   stepHeader,
   stepNavigation,
   stepNavigationHelp,
+  pullRequest,
   stepStatus,
   footer
 } from './style';
 
 const HelpGuideStyle = styled.div`${helpGuide}`;
 const HelpStyle = styled.div`${helpStyle}`;
+const PullRequestStyle = styled.div`${pullRequest}`;
 const NavigationStyle = styled.div`${navigation}`;
 const LabelStyle = styled.h4`${label}`;
 const PageStyle = styled.div`${page}`;
@@ -333,12 +335,14 @@ reference: ${this.getFileName(false)}
 
         {
           showSnippet &&
-          <PullRequest
-            fileName={this.getFileName()}
-            handleEditInfo={this.OnEditInfo}
-            resourceData={collectedData}
-            snippet={this.generateSnippet()}
-          />
+          <PullRequestStyle>
+            <PullRequest
+              fileName={this.getFileName()}
+              handleEditInfo={this.OnEditInfo}
+              resourceData={collectedData}
+              snippet={this.generateSnippet()}
+            />
+          </PullRequestStyle>
         }
 
         <FooterStyle>

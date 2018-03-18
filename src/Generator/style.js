@@ -72,15 +72,14 @@ export const helpGuide = css`
 `;
 
 export const helpStyle = css`
-  ${typography.body}
   margin: ${extRem(20,0,0)};
   color: ${neutral.high};
-  
-  a {
-    font-weight: bold;
-    text-decoration: underline;
-    color: currentColor;
-  }
+`;
+
+
+export const pullRequest = css`
+  margin: ${extRem(20,0,0)};
+  color: ${neutral.high};
 `;
 
 export const footer = css`
