@@ -14,6 +14,8 @@ export default collectedData => {
     hasError: !pristine ? !!(errors && errors.length > 0) : null,
     dirty: !pristine,
     size: 'L',
-    renderForSnippet: () => `'${value.replace(/'/g, "\\'").trim()}'`
+    expanded: true,
+    renderForSnippet: () => `'${value.replace(/'/g, "\\'").trim()}'`,
+    style: { maxWidth: '600px' }
   };
 };

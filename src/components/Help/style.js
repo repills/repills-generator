@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { theme, typography, extRem } from 'repills-react-components';
+import { theme, typography, extRem, media } from 'repills-react-components';
 
 const { palettes } = theme;
 const { neutral } = palettes;
@@ -12,8 +12,14 @@ export const lastSentence = css`
 `;
 
 export const featureList = css`
-  border: 1px solid ${neutral.medium};
-  padding: ${extRem(40)};
+  border-top: 1px solid ${neutral.low};
+  border-bottom: 1px solid ${neutral.low};
+  padding: ${extRem(20)};
+  
+  ${media.SM`
+    border: 1px solid ${neutral.low};
+    padding: ${extRem(40)};
+  `}
 `;
 
 export const actions = css`

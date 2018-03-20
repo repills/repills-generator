@@ -10,7 +10,6 @@ const { neutral } = palettes;
 
 export const base = css`
   margin: 0 auto;
-  padding-top: ${extRem(36)};
 `;
 
 export const title = css`

@@ -8,7 +8,8 @@ import {
 import {
   Modal,
   Button,
-  TopNavigation
+  TopNavigation,
+  PageBlock
 } from 'repills-react-components';
 import update from 'immutability-helper';
 import Validator from 'validatorjs';
@@ -19,37 +20,27 @@ import validations from '../data/validators';
 
 import {
   helpGuide,
-  helpStyle,
-  label,
   page,
   step,
-  stepBody,
   stepErrors,
   stepField,
   navigation,
   stepFooter,
-  stepHeader,
   stepNavigation,
   stepNavigationHelp,
   pullRequest,
-  stepStatus,
   footer
 } from './style';
 
 const HelpGuideStyle = styled.div`${helpGuide}`;
-const HelpStyle = styled.div`${helpStyle}`;
 const PullRequestStyle = styled.div`${pullRequest}`;
 const NavigationStyle = styled.div`${navigation}`;
-const LabelStyle = styled.h4`${label}`;
 const PageStyle = styled.div`${page}`;
-const StepBodyStyle = styled.div`${stepBody}`;
 const StepErrorsStyle = styled.div`${stepErrors}`;
 const StepFieldStyle = styled.div`${stepField}`;
 const StepFooter = styled.div`${stepFooter}`;
-const StepHeader = styled.div`${stepHeader}`;
 const StepNavigation = styled.div`${stepNavigation}`;
 const StepNavigationHelp = styled.div`${stepNavigationHelp}`;
-const StepStatus = styled.div`${stepStatus}`;
 const StepStyle = styled.div`${step}`;
 const FooterStyle = styled.footer`${footer}`;
 
@@ -230,19 +221,11 @@ reference: ${this.getFileName(false)}
 
     return (
       <StepStyle>
-        <StepHeader>
-          <StepStatus>
-            Step <strong>{currentFieldIndex + 1}</strong> of {fieldsReferences.length}
-          </StepStatus>
-          <LabelStyle>
-            {field.title}
-          </LabelStyle>
-          {
-            field.help &&
-            <HelpStyle dangerouslySetInnerHTML={{ __html: field.help }} />
-          }
-        </StepHeader>
-        <StepBodyStyle>
+        <PageBlock
+          title={field.title}
+          description={field.help}
+          align="CENTER"
+        >
           <StepFieldStyle>
             <Component
               handleOnChange={this.handleOnChange(field)}
@@ -259,27 +242,27 @@ reference: ${this.getFileName(false)}
               }
             </StepErrorsStyle>
           }
-        </StepBodyStyle>
-        <StepFooter>
-          <StepNavigation>
-            {
-              this.hasPrev() &&
+          <StepFooter>
+            <StepNavigation>
+              {
+                this.hasPrev() &&
+                <Button
+                  label="Previous"
+                  onClick={this.handleGoToPrevStep}
+                  skin="outline"
+                  type="button"
+                />
+              }
               <Button
-                label="Previous"
-                onClick={this.handleGoToPrevStep}
-                skin="outline"
+                disabled={!this.isFieldOk(field.name)}
+                label="Next"
+                onClick={this.handleGoToNextStep}
                 type="button"
               />
-            }
-            <Button
-              disabled={!this.isFieldOk(field.name)}
-              label="Next"
-              onClick={this.handleGoToNextStep}
-              type="button"
-            />
-          </StepNavigation>
-          <StepNavigationHelp>or simply <strong>Enter ⏎</strong></StepNavigationHelp>
-        </StepFooter>
+            </StepNavigation>
+            <StepNavigationHelp>or simply <strong>Enter ⏎</strong></StepNavigationHelp>
+          </StepFooter>
+        </PageBlock>
       </StepStyle>
     );
   };

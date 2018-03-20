@@ -5,7 +5,7 @@ export default collectedData => {
   const { value, pristine, errors } = sections;
 
   return {
-    title: 'Sections',
+    title: 'Section',
     component: 'SectionSelector',
     name: 'sections',
     required: true,
@@ -18,6 +18,7 @@ export default collectedData => {
     handler: ({ selected }) => selected !== null
       ?  ({ value: sectionsConfig[selected].id, dirty: true })
       : ({ value: selected, dirty: true }),
-    renderForSnippet: () => `[${value.trim()}]`
+    renderForSnippet: () => `[${value.trim()}]`,
+    style: { width: '100%' }
   };
 };

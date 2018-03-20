@@ -15,7 +15,8 @@ export default collectedData => {
     dirty: !pristine,
     required: true,
     size: 'L',
-    expanded: true
+    expanded: true,
+    style: { maxWidth: '600px' }
   };
 };
 

@@ -16,6 +16,7 @@ export default collectedData => {
     dirty: !pristine,
     size: 'L',
     expanded: true,
-    renderForSnippet: () => `'${value.replace(/'/g, "\\'").trim()}'`
+    renderForSnippet: () => `'${value.replace(/'/g, "\\'").trim()}'`,
+    style: { maxWidth: '600px' }
   };
 };

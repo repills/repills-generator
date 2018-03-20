@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Button,
   FeatureList,
-  PageBlock
+  PageBlock,
 } from 'repills-react-components';
 import styled from 'styled-components';
 import {

@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { theme, typography, extRem } from 'repills-react-components';
+import { theme, typography, extRem, media } from 'repills-react-components';
 
 const { palettes } = theme;
 const { neutral, status } = palettes;
@@ -10,10 +10,15 @@ export const page = css`
 `;
 
 export const navigation = css`
+  border-bottom: 1px solid ${neutral.low};
+
+  ${media.MD`
+    margin: ${extRem(0,16)};
+  `}
 `;
 
 export const step = css`
-  padding: ${extRem(24,16,0)};
+  padding: ${extRem(52,16,0)};
 `;
 
 export const stepHeader = css`
@@ -22,7 +27,8 @@ export const stepHeader = css`
 
 export const stepStatus = css`
   ${typography.body}
-  color: ${neutral.mediumHigh};
+  color: ${neutral.medium};
+  margin-bottom: ${extRem(20)};
   text-transform: uppercase;
 `;
 
@@ -37,15 +43,12 @@ export const stepNavigation = css`
   }
 `;
 
-export const stepBody = css`
-  margin: ${extRem(40)} auto 0;
-`;
-
 export const stepField = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;
 
 export const stepErrors = css`
@@ -57,28 +60,16 @@ export const stepErrors = css`
 
 export const stepNavigationHelp = css`
   ${typography.body}
-  color: ${neutral.highest};
+  color: ${neutral.high};
   margin-top: ${extRem(16)};
-`;
-
-export const label = css`
-  ${typography.header3}
-  margin: ${extRem(40,0,0)};
-  line-height: 1;
 `;
 
 export const helpGuide = css`
   padding: ${extRem(40,16,0)};
 `;
 
-export const helpStyle = css`
-  margin: ${extRem(20,0,0)};
-  color: ${neutral.high};
-`;
-
-
 export const pullRequest = css`
-  margin: ${extRem(20,0,0)};
+  margin: ${extRem(20,16,0)};
   color: ${neutral.high};
 `;
 
@@ -86,7 +77,7 @@ export const footer = css`
   ${typography.small}
   margin-top: ${extRem(60)};
   padding: ${extRem(20,0,28)};
-  color: ${neutral.mediumHigh};
+  color: ${neutral.medium};
   align-items: center;
   display: flex;
   justify-content: center;
