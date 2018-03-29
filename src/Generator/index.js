@@ -55,7 +55,7 @@ const fieldsReferences = [
   'suggestedBy'
 ];
 
-const collectedData = fieldsReferences.reduce((acc,key) => {
+const initialData = fieldsReferences.reduce((acc,key) => {
   acc[key] = {
     value: null,
     pristine: true,
@@ -71,7 +71,7 @@ class Generator extends React.Component {
     this.state = {
       currentFieldIndex: 0,
       dataFields,
-      collectedData,
+      collectedData: initialData,
       showSnippet: false,
       showHelp: false,
       reachedStepIndex: 0,
@@ -86,6 +86,15 @@ class Generator extends React.Component {
   componentDidMount() {
     document.addEventListener('keydown', this.keyDownTextField, false);
   }
+
+  addNewResource = () => {
+    this.setState({
+      collectedData: initialData,
+      reachedStepIndex: 0,
+      currentFieldIndex: 0,
+      showSnippet: false
+    })
+  };
 
   getFieldErrors = (fieldName,value) => {
     let errors = [];
@@ -131,11 +140,10 @@ class Generator extends React.Component {
     const { collectedData } = this.state;
     const body = fieldsReferences.reduce((acc, key, index) => {
       const value = collectedData[key].value;
-      if (value) {
-        const field = dataFields[index](collectedData);
-        const _value = field.renderForSnippet ? field.renderForSnippet() : value;
-        acc.push(`${key}: ${_value}`);
-      }
+      const field = dataFields[index](collectedData);
+      console.log(field.name, value, field.renderForSnippet ? field.renderForSnippet() : value)
+      const _value = field.renderForSnippet ? field.renderForSnippet() : value;
+      acc.push(`${key}: ${_value}`);
       return acc;
     }, []).join('\n');
 
@@ -162,7 +170,8 @@ reference: ${this.getFileName(false)}
     return !validations[fieldName] || (!field.pristine && field.errors.length === 0);
   };
 
-  handleGoToNextStep = () => {
+  // skip allows to not consider the validation
+  handleGoToNextStep = skip => {
     const {
       currentFieldIndex,
       reachedStepIndex
@@ -170,13 +179,14 @@ reference: ${this.getFileName(false)}
 
     if (currentFieldIndex !== null && (currentFieldIndex + 1 < fieldsReferences.length)) {
 
-      if (this.isFieldOk(fieldsReferences[currentFieldIndex])) {
+      if (skip || this.isFieldOk(fieldsReferences[currentFieldIndex])) {
         this.setState(state => {
           const newFieldIndex = state.currentFieldIndex + 1;
           const _reachedStepIndex = newFieldIndex > currentFieldIndex ? newFieldIndex : reachedStepIndex;
           return { currentFieldIndex: state.currentFieldIndex + 1, reachedStepIndex: _reachedStepIndex };
         });
       }
+
     } else {
       this.setState({
         showSnippet: true,
@@ -218,6 +228,11 @@ reference: ${this.getFileName(false)}
     const field = dataFields[currentFieldIndex](collectedData);
     const Component = c[field.component];
     const data = collectedData[field.name];
+
+    if(field.skip) {
+      this.handleGoToNextStep(true);
+      return;
+    }
 
     return (
       <StepStyle>
@@ -324,6 +339,7 @@ reference: ${this.getFileName(false)}
               handleEditInfo={this.OnEditInfo}
               resourceData={collectedData}
               snippet={this.generateSnippet()}
+              handleAddNewResource={this.addNewResource}
             />
           </PullRequestStyle>
         }
