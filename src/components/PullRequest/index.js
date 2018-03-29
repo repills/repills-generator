@@ -117,8 +117,7 @@ class PullRequest extends React.Component {
 
         <PageBlock
           title="The outcome"
-          description="Once a pull request is made it will be reviewed and if everything is ok it'll be merged in and appear on repills.com. Here is a preview!
-          Thanks again for your contribution."
+          description="Once a pull request is made it will be reviewed and if everything is ok it'll be merged in and appear on repills.com. Here is a preview!"
           style={{ marginTop: '36px' }}
         >
           <PreviewStyle>
@@ -135,7 +134,7 @@ class PullRequest extends React.Component {
 
         <PageBlock
           title="Contribute again"
-          description="..."
+          description="Thanks again for your contribution. Click on the following button to add a new resource. Make sure that you'd finished the previous activity. All collected data will be cleaned."
           style={{ marginTop: '52px' }}
         >
           <ActionsStyle>
