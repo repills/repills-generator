@@ -12,9 +12,10 @@ export default collectedData => {
     name: 'topics',
     handler: ({ selected }) =>  ({ value: selected, dirty: true }),
     selected: value ? value : [],
-    topics: section.topics,
+    topics: section ? section.topics : [],
     hasError: !pristine ? !!(errors && errors.length > 0) : null,
     dirty: !pristine,
-    renderForSnippet: () => `[${value.join(', ')}]`
+    renderForSnippet: () => value ? `[${value.join(', ')}]` : `[]`,
+    skip: !section
   };
 };
