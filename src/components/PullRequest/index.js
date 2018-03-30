@@ -40,7 +40,7 @@ class PullRequest extends React.Component {
     } = this.props;
     const publishedAt = resourceData.publishedAt.value;
     const year = publishedAt ? parseInt(publishedAt,10) : 'NO_DATE';
-    return `${baseUrlGitHubRepo}new/develop/src/resources/${year}?filename=${fileName}&value=${encodeURI(snippet)}`;
+    return `${baseUrlGitHubRepo}new/develop/src/resources/${year}/resource?filename=${fileName}&value=${encodeURI(snippet)}`;
   };
 
   render() {
