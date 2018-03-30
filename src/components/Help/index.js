@@ -32,7 +32,7 @@ const Help = ({
     },
     {
       icon: 'Star',
-      title: 'Content quality',
+      title: 'Free and high-quality contents',
       description: 'We ask you to share high-quality resources. This way you allow people to learn and keep themselves up to date in the best way.'
     },
     {
