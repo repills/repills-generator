@@ -10,7 +10,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "repills-config": "git+https://github.com/repills/repills-config.git#1.5.0",
-    "repills-react-components": "git+https://github.com/repills/repills-react-components.git#0.35.0",
+    "repills-react-components": "git+https://github.com/repills/repills-react-components.git#0.37.3",
     "serve": "^6.5.3",
     "validatorjs": "^3.13.6"
   },

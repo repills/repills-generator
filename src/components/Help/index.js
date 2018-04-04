@@ -1,19 +1,17 @@
 import React from 'react';
 import {
   Button,
-  FeatureList,
   PageBlock,
+  FeatureList
 } from 'repills-react-components';
 import styled from 'styled-components';
 import {
   actions,
-  lastSentence,
-  featureList
+  lastSentence
 } from './style';
 
 const ActionsStyle = styled.div`${actions}`;
 const LastSentence = styled.p`${lastSentence}`;
-const FeatureListStyle = styled(FeatureList)`${featureList}`;
 
 const Help = ({
   handleOnConfirm
@@ -49,9 +47,8 @@ const Help = ({
         description="Some tips before you start adding your first resource:"
         align="CENTER"
       >
-        <FeatureListStyle
+        <FeatureList
           features={features}
-          style={{marginTop: '60px'}}
         />
 
         <LastSentence>Every contribution is really appreciated.</LastSentence>

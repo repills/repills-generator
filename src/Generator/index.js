@@ -240,6 +240,7 @@ reference: ${this.getFileName(false)}
           title={field.title}
           description={field.help}
           align="CENTER"
+          simple
         >
           <StepFieldStyle>
             <Component
@@ -326,9 +327,11 @@ reference: ${this.getFileName(false)}
           open={showHelp}
           size="L"
         >
-          <Help
-            handleOnConfirm={this.closeHelp}
-          />
+          <div style={{padding: '40px 20px'}}>
+            <Help
+              handleOnConfirm={this.closeHelp}
+            />
+          </div>
         </Modal>
 
         {

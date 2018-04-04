@@ -72,6 +72,7 @@ class PullRequest extends React.Component {
           description="By clicking the following button it will populate the pull request page with the resource filename and the
           code snippet that represents the resource itself."
           style={{ marginTop: '36px' }}
+          simple
         >
           <ActionsStyle>
             <Button
@@ -119,6 +120,7 @@ class PullRequest extends React.Component {
           title="The outcome"
           description="Once a pull request is made it will be reviewed and if everything is ok it'll be merged in and appear on repills.com. Here is a preview!"
           style={{ marginTop: '36px' }}
+          simple
         >
           <PreviewStyle>
             <ResourcePreview
@@ -136,6 +138,7 @@ class PullRequest extends React.Component {
           title="Contribute again"
           description="Thanks again for your contribution. Click on the following button to add a new resource. Make sure that you'd finished the previous activity. All collected data will be cleaned."
           style={{ marginTop: '52px' }}
+          simple
         >
           <ActionsStyle>
             <Button
