@@ -1,6 +1,7 @@
 import React from 'react';
 import dataFields from '../data/fields';
 import * as c from 'repills-react-components';
+import slugify from 'slugify';
 import {
   Help,
   PullRequest
@@ -141,7 +142,6 @@ class Generator extends React.Component {
     const body = fieldsReferences.reduce((acc, key, index) => {
       const value = collectedData[key].value;
       const field = dataFields[index](collectedData);
-      console.log(field.name, value, field.renderForSnippet ? field.renderForSnippet() : value)
       const _value = field.renderForSnippet ? field.renderForSnippet() : value;
       acc.push(`${key}: ${_value}`);
       return acc;
@@ -155,14 +155,21 @@ class Generator extends React.Component {
       `---
 ${body}
 createdAt: ${new Date().toISOString()}
-reference: ${this.getFileName(false)}
+reference: ${this.getFileReference(false)}
+slug: ${this.getFileName(false)}
 ---`);
+  };
+
+  getFileReference = (withExtension = true) => {
+    const { collectedData  } = this.state;
+    const url = collectedData['link'].value;
+    return url ? `${base64url(url)}${withExtension ? '.md' : ''}` : null;
   };
 
   getFileName = (withExtension = true) => {
     const { collectedData  } = this.state;
-    const url = collectedData['link'].value;
-    return url ? `${base64url(url)}${withExtension ? '.md' : ''}` : null;
+    const title = collectedData['title'].value;
+    return title ? `${slugify(`${collectedData.title.value} by ${collectedData.author.value}`, {remove: /[$*_–—+,~.()'"#!?\-:@]/g}).toLowerCase()}${withExtension ? '.md' : ''}` : null;
   };
 
   isFieldOk = fieldName => {
