@@ -5,7 +5,7 @@ const { palettes } = theme;
 const { neutral, status } = palettes;
 
 export const page = css`
-  max-width: ${extRem(950)}; 
+  max-width: ${extRem(1030)}; 
   margin: 0 auto;
 `;
 

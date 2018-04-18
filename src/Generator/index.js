@@ -312,7 +312,7 @@ slug: ${this.getFileName(false)}
               },
               {
                 label: 'repills.com',
-                href: 'http://repills.com'
+                href: 'https://repills.com'
               }
             ]}
           />
