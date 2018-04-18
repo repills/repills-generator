@@ -6369,6 +6369,10 @@ repeating@^2.0.0:
   version "1.8.1"
   resolved "git+https://github.com/repills/repills-config.git#a26213499d95783aa0c2357a57f10133e335c6c1"
 
+"repills-config@git+https://github.com/repills/repills-config.git#1.8.2":
+  version "1.8.2"
+  resolved "git+https://github.com/repills/repills-config.git#218021f29781e10bbeb2c675001238ea0029c185"
+
 "repills-react-components@git+https://github.com/repills/repills-react-components.git#0.48.7":
   version "0.48.7"
   resolved "git+https://github.com/repills/repills-react-components.git#7a64d7e6685e46f959c5b05ec82dfa74474d8fd5"
