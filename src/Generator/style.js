@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { theme, typography, extRem, media } from 'repills-react-components';
 
 const { palettes } = theme;
-const { neutral, status } = palettes;
+const { basic, neutral, status } = palettes;
 
 export const page = css`
   max-width: ${extRem(1030)}; 
@@ -10,11 +10,16 @@ export const page = css`
 `;
 
 export const navigation = css`
-  border-bottom: 1px solid ${neutral.low};
+  background-color: ${basic.secondary};
 
   ${media.MD`
-    margin: ${extRem(0,16)};
+    padding: ${extRem(0,16)};
   `}
+  
+  > div {
+    max-width: ${extRem(998)}; 
+    margin: 0 auto;
+  }
 `;
 
 export const step = css`

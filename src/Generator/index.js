@@ -300,8 +300,7 @@ slug: ${this.getFileName(false)}
     } = this.state;
 
     return (
-      <PageStyle>
-
+      <div>
         <NavigationStyle>
           <TopNavigation
             items={[
@@ -317,54 +316,55 @@ slug: ${this.getFileName(false)}
             ]}
           />
         </NavigationStyle>
+        <PageStyle>
+          {
+            initialHelpVisible &&
+            <HelpGuideStyle>
+              <Help
+                handleOnConfirm={this.hideInitialHelp}
+              />
+            </HelpGuideStyle>
+          }
 
-        {
-          initialHelpVisible &&
-          <HelpGuideStyle>
-            <Help
-              handleOnConfirm={this.hideInitialHelp}
-            />
-          </HelpGuideStyle>
-        }
+          { !initialHelpVisible && !showSnippet && this.renderCurrentStep() }
 
-        { !initialHelpVisible && !showSnippet && this.renderCurrentStep() }
-
-        <Modal
-          handleClose={this.closeHelp}
-          open={showHelp}
-          size="L"
-        >
-          <div style={{padding: '40px 20px'}}>
-            <Help
-              handleOnConfirm={this.closeHelp}
-            />
-          </div>
-        </Modal>
-
-        {
-          showSnippet &&
-          <PullRequestStyle>
-            <PullRequest
-              fileName={this.getFileName()}
-              handleEditInfo={this.OnEditInfo}
-              resourceData={collectedData}
-              snippet={this.generateSnippet()}
-              handleAddNewResource={this.addNewResource}
-            />
-          </PullRequestStyle>
-        }
-
-        <FooterStyle>
-          <a
-            href="https://github.com/repills/repills-generator/issues"
-            rel="noopener noreferrer"
-            target="_blank"
+          <Modal
+            handleClose={this.closeHelp}
+            open={showHelp}
+            size="L"
           >
-            Report issue or suggestion
-          </a>
-        </FooterStyle>
+            <div style={{padding: '40px 20px'}}>
+              <Help
+                handleOnConfirm={this.closeHelp}
+              />
+            </div>
+          </Modal>
 
-      </PageStyle>
+          {
+            showSnippet &&
+            <PullRequestStyle>
+              <PullRequest
+                fileName={this.getFileName()}
+                handleEditInfo={this.OnEditInfo}
+                resourceData={collectedData}
+                snippet={this.generateSnippet()}
+                handleAddNewResource={this.addNewResource}
+              />
+            </PullRequestStyle>
+          }
+
+          <FooterStyle>
+            <a
+              href="https://github.com/repills/repills-generator/issues"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Report issue or suggestion
+            </a>
+          </FooterStyle>
+
+        </PageStyle>
+      </div>
     );
   }
 }
