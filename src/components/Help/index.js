@@ -60,7 +60,6 @@ const Help = ({
           />
         </ActionsStyle>
       </PageBlock>
-
     </div>
   );
 };

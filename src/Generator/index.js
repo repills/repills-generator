@@ -1,23 +1,24 @@
-import React from 'react';
-import dataFields from '../data/fields';
-import * as c from 'repills-react-components';
-import slugify from 'slugify';
+import React from 'react'
+import dataFields from '../data/fields'
+import * as c from 'repills-react-components'
+import slugify from 'slugify'
 import {
   Help,
   PullRequest
-} from '../components';
+} from '../components'
 import {
+  ProvideContainerQuery,
   Modal,
   Button,
   TopNavigation,
-  PageBlock
-} from 'repills-react-components';
-import update from 'immutability-helper';
-import Validator from 'validatorjs';
+  PageBlock,
+} from 'repills-react-components'
+import update from 'immutability-helper'
+import Validator from 'validatorjs'
 
-import base64url from 'base64url';
-import styled from 'styled-components';
-import validations from '../data/validators';
+import base64url from 'base64url'
+import styled from 'styled-components'
+import validations from '../data/validators'
 
 import {
   helpGuide,
@@ -369,4 +370,4 @@ slug: ${this.getFileName(false)}
   }
 }
 
-export default Generator;
+export default ProvideContainerQuery(Generator);
